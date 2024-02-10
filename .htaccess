@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^$ /login.html [L]
+RewriteRule ^$ /index2.html [L]
