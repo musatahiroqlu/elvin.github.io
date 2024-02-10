@@ -25,7 +25,7 @@ function singInFunction(event) {
         if(result){
             localStorage.setItem('USERS',JSON.stringify(user))
             localStorage.setItem('USERS2',usernameInput.value)
-            window.location.replace("index2.html")
+            window.location.replace("index.html")
         }
         else{
             alert("Username or password is incorrect, please type correctly")
