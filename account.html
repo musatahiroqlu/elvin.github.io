@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/FEx__1_-removebg-preview.png">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-PzGGI8HwDZ62ctRXwqqqCDGOdOAa17JqEC3is6L6Xzmq7L1p6DAikq4EQuwvr+M6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-ggO3liB/WSuMz9vTlF2F6kkz18U9BTV5z8gBtkUCcX2LQLvm+JoDKEVR7Muh1/2Z"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>My Computers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/FEx__1_-removebg-preview.png">
+    <style>
+        .computer-card {
+            border: 1px solid #fff;
+            padding: 10px;
+            margin: 5px;
+            width: 395px;
+            display: inline-block;
+            background-color: #fff;
+            height: 760px;
+            border-radius: 5px;
+        }
+        .computer-card img{
+          width: 370px;
+        }
+    </style>
+</head>
+<body style="background-color: #0171d3; height: 100vh;">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/FEx__1_-removebg-preview.png">
+        </div>
+        <div class="link">
+            <ul>
+                <li>
+                    <div class="dropdown" style="border-radius: 100%;">
+                        <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="images/user1-removebg-preview.png" style="width: 70px ; border-radius: 100%;">
+                        </button>
+                        <ul class="dropdown-menu drop-start" >
+                            <li><a class="dropdown-item" href="account.html" style="font-size: 18px;">Account </a></li>
+                            <li><a class="dropdown-item" href="settings.html" style="font-size: 18px;">Settings</a></li>
+                            <li><a class="dropdown-item" href="Sierra.html" style="font-size: 18px;">Sierra <span class="AI">AI</span></a></li>
+                            <hr>
+            
+                            
+                            <li><a class="dropdown-item" href="computer.html" style="font-size: 18px;">Sell</a></li>
+                            <li><a class="dropdown-item" href="BestSeller.html" style="font-size: 18px;">Best Sellers </a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="index.html" >Log Out</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="shopping2.html">Shopping</a></li>
+                <li><a href="add.html">Add Comp.</a></li>
+            
+            </ul>
+        </div>
+    </nav>
+  
+    <div>
+        <img src="images/user1-removebg-preview.png" alt="">
+        <h1 id="username_id" style="padding-top: 15px;">Username:</h1>
+        <div id="computerList"></div>
+    </div>
+   <script>
+    let usernameId = document.querySelector("#username_id")
+    let username = localStorage.getItem("USERS2")
+    usernameId.innerHTML = "Username:" + " " + username
+
+    var computers = JSON.parse(localStorage.getItem('computers')) || [];
+
+var computerListContainer = document.getElementById('computerList');
+
+
+for (var i = 0; i < computers.length; i++) {
+  var computer = computers[i];
+
+
+  var cardHTML = `
+  <div class="computer-card"> 
+    <img src="${computer.image}" data-bs-toggle="modal" data-bs-target="#podal4" style="width: 320px; margin: 0;">
+                <div class="modal" id="podal4">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+
+
+
+                            <div class="modal-body">
+                                <img src="${computer.image}" style="width: 430px;">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <h2>Name: ${computer.name}</h2>
+            <h4>Model: ${computer.model} </h4>
+            <p>About: ${computer.text} </p> 
+            <p>Permanent: ${computer.permanent} </p> 
+            <p>Oper. System: ${computer.operating} </p> 
+            <h4>${computer.price} AZN </h4>            
+            </div>
+      `;
+
+
+  computerListContainer.innerHTML += cardHTML;
+}
+   </script>
+</body>
+</html>

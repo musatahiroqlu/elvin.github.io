@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEX || Loading</title>
+    <link rel="icon" href="images/FEx__1_-removebg-preview.png">
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loader{
+            height: 200px;
+            width: 200px;
+            border: 12px solid #0171d3 ;
+            border-radius: 50%;
+            border-right-color:#e3e3e3;
+            animation: spin 1s ease infinite;
+        }
+
+        @keyframes spin{
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+    <script>
+        setTimeout(() =>{
+            window.location.replace("login.html") 
+        },2000) 
+        </script>
+</body>
+</html>

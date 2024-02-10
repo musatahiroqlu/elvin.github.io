@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login-singup.css">
+    <link rel="icon" href="images/FEx__1_-removebg-preview.png">
+    <title>Add Computer</title>
+</head>
+<body>
+  <div class="container">
+   <form>
+      <div class="form" >
+         <h1>Add computer </h1>
+     <form id="computerForm">
+        <label for="name"> Name:</label>
+        <input required type="text" id="name" style="width: 100%;padding:10px;"> </br>
+        <label for="model"> Model:</label>
+        <input required type="text" id="model" style="width: 100%;padding:10px"> </br>
+        <label for="imageComp"> Image:</label>
+        <input required type="text" id="imageComp" style="width: 100%;padding:10px;"> </br>
+        <label for="storageComp"> Storage:</label>
+        <input required type="text" id="storageComp" style="width: 100%;padding:10px;"> </br>
+        <label for="storageComp"> About:</label>
+        <input required type="text" id="About" style="width: 100%;padding:10px;"> </br>
+        <label for="storageComp"> Price:</label>
+        <input required type="text" id="price" style="width: 100%; padding:10px;"> </br>
+        <label for="permanent memory type"> Permanent memory type:</label>
+        <input required type="text" id="Permanent" style="width: 100%;padding:10px;"> </br>
+        <label for="Operating system"> Operating system:</label>
+        <input required type="text" id="Operating" style="width: 100%;padding:10px;"> </br>
+        <button type="button" onclick="saveComputer()" class="savebtn" style="color: #fff;text-decoration: none;" ><a href="shopping2.html" style="color: #fff;">Save</a></button>
+     
+      </div>
+   </form>
+  </div>
+     <script>
+        localStorage.clear();
+        function saveComputer(){
+            var name = document.getElementById('name').value;
+            var image = document.getElementById('imageComp').value;
+            var model = document.getElementById('model').value;
+            var storage = document.getElementById('storageComp').value;
+            var text = document.querySelector("#About").value
+            var priceInput = document.querySelector('#price').value
+            var Permanent = document.querySelector("#Permanent").value
+            var Operating = document.querySelector("#Operating").value
+            
+           var computer ={ 
+            name: name ,
+            image: image ,
+            model: model ,
+            storage: storage,
+            text:text,
+            price:priceInput,
+            permanent:Permanent,
+            operating:Operating,
+            storage:storage
+           };
+             var computers = JSON.parse(localStorage.getItem('computers')) || [];
+             computers.push(computer);
+
+             localStorage.setItem('computers' , JSON.stringify(computers));
+             document.getElementById("computerForm").reset();
+             alert("Computer saved");
+
+        }
+
+
+     </script>
+</body>
+</html>
